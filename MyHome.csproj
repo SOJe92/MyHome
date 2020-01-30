@@ -11,16 +11,22 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.0" />
   </ItemGroup>
 
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
     <Compile Remove="ClientApp\old\**" />
+    <Compile Remove="Controllers\Entity\**" />
     <Content Remove="$(SpaRoot)**" />
     <Content Remove="ClientApp\old\**" />
+    <Content Remove="Controllers\Entity\**" />
     <EmbeddedResource Remove="ClientApp\old\**" />
+    <EmbeddedResource Remove="Controllers\Entity\**" />
     <None Remove="$(SpaRoot)**" />
     <None Remove="ClientApp\old\**" />
+    <None Remove="Controllers\Entity\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
@@ -59,6 +65,7 @@
 
   <ItemGroup>
     <Folder Include="ClientApp\src\app\interfaces\routing\" />
+    <Folder Include="Controllers\App\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
