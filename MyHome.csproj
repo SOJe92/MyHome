@@ -19,13 +19,13 @@
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
     <!--<Compile Remove="ClientApp\**" />-->
     <Compile Remove="Controllers\Entity\**" />
-    <Content Remove="$(SpaRoot)**" />
-    <Content Remove="ClientApp\**" />
+    <!--<Content Remove="$(SpaRoot)**" />-->
+    <!--<Content Remove="ClientApp\**" />-->
     <Content Remove="Controllers\Entity\**" />
-    <EmbeddedResource Remove="ClientApp\**" />
+    <!--<EmbeddedResource Remove="ClientApp\**" />-->
     <EmbeddedResource Remove="Controllers\Entity\**" />
-    <None Remove="$(SpaRoot)**" />
-    <None Remove="ClientApp\**" />
+    <!--<None Remove="$(SpaRoot)**" />-->
+    <!--<None Remove="ClientApp\**" />-->
     <None Remove="Controllers\Entity\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
