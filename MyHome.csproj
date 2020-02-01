@@ -17,54 +17,20 @@
 
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
-    <Compile Remove="ClientApp\old\**" />
+    <Compile Remove="ClientApp\**" />
     <Compile Remove="Controllers\Entity\**" />
     <Content Remove="$(SpaRoot)**" />
-    <Content Remove="ClientApp\old\**" />
+    <Content Remove="ClientApp\**" />
     <Content Remove="Controllers\Entity\**" />
-    <EmbeddedResource Remove="ClientApp\old\**" />
+    <EmbeddedResource Remove="ClientApp\**" />
     <EmbeddedResource Remove="Controllers\Entity\**" />
     <None Remove="$(SpaRoot)**" />
-    <None Remove="ClientApp\old\**" />
+    <None Remove="ClientApp\**" />
     <None Remove="Controllers\Entity\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\old\.eslintrc.json" />
-    <None Remove="ClientApp\old\.gitignore" />
-    <None Remove="ClientApp\old\package-lock.json" />
-    <None Remove="ClientApp\old\package.json" />
-    <None Remove="ClientApp\old\public\favicon.ico" />
-    <None Remove="ClientApp\old\public\index.html" />
-    <None Remove="ClientApp\old\public\manifest.json" />
-    <None Remove="ClientApp\old\README.md" />
-    <None Remove="ClientApp\old\src\App.test.tsx" />
-    <None Remove="ClientApp\old\src\App.tsx" />
-    <None Remove="ClientApp\old\src\components\Counter.tsx" />
-    <None Remove="ClientApp\old\src\components\FetchData.tsx" />
-    <None Remove="ClientApp\old\src\components\Home.tsx" />
-    <None Remove="ClientApp\old\src\components\Layout.tsx" />
-    <None Remove="ClientApp\old\src\components\NavMenu.css" />
-    <None Remove="ClientApp\old\src\components\NavMenu.tsx" />
-    <None Remove="ClientApp\old\src\custom.css" />
-    <None Remove="ClientApp\old\src\index.tsx" />
-    <None Remove="ClientApp\old\src\react-app-env.d.ts" />
-    <None Remove="ClientApp\old\src\registerServiceWorker.ts" />
-    <None Remove="ClientApp\old\src\store\configureStore.ts" />
-    <None Remove="ClientApp\old\src\store\Counter.ts" />
-    <None Remove="ClientApp\old\src\store\index.ts" />
-    <None Remove="ClientApp\old\src\store\WeatherForecasts.ts" />
-    <None Remove="ClientApp\old\tsconfig.json" />
-    <None Remove="ClientApp\src\app\interfaces\application\state.d.ts" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\src\app\interfaces\application\state.d.ts" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ClientApp\src\app\interfaces\routing\" />
     <Folder Include="Controllers\App\" />
   </ItemGroup>
 
