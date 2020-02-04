@@ -33,18 +33,7 @@ class Api {
     setPermissions(permissions: any) {
         this.permissions = permissions;
     }
-    async getTest(dispatch: any, actionType: string, endpoint: string, method: string = '', payload: any = {}, options: any = {}) {
-        const res = await fetch(endpoint, {
-            method,
-            //body: JSON.stringify(payload),\
-            //types: this.buildTypes(actionType),
-            headers: this.buildHeaders(null, options),
-            credentials: 'same-origin'
-        })
-        if (!res.ok) throw new Error(res.statusText)
-        dispatch(actionType, res.json);
-    }
-    get(dispatch: any, actionType: string, endpoint: string, method: string = '', payload: any = {}, options: any = {}) {
+    get(actionType: string, endpoint: string, options: any = {}) {
         const fullEndpointUri = this.buildEndpoint(endpoint, options);
         return {
             [RSAA]: {
