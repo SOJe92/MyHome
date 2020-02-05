@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MyHome.Model.App.Services.Contracts;
-using MyHome.Model.App;
 
 namespace MyHome.Controllers.App
 {
@@ -29,7 +23,7 @@ namespace MyHome.Controllers.App
 
         [Route("item")]
         [HttpGet]
-        public IActionResult GetItem(int id)
+        public ActionResult<Model.App.Resources.Get.MenuItem> GetItem(int id)
         {
             var menu = _menuService.GetMenuItem(id);
 
@@ -38,15 +32,53 @@ namespace MyHome.Controllers.App
 
         [Route("add")]
         [HttpPost]
-        public IActionResult Add()
+        public ActionResult Add(Model.App.Resources.Post.Menu menu)
         {
+            _menuService.AddMenu(menu);
+
             return Ok();
         }
 
         [Route("addItem")]
         [HttpPost]
-        public IActionResult AddItem()
+        public ActionResult AddItem(Model.App.Resources.Post.MenuItem menuItem)
         {
+            _menuService.AddMenuItem(menuItem);
+
+            return Ok();
+        }
+
+        [Route("deleteItem")]
+        [HttpDelete]
+        public ActionResult DeleteItem(int id)
+        {
+            _menuService.DeleteMenuItem(id);
+
+            return Ok();
+        }
+
+        [Route("delete")]
+        [HttpDelete]
+        public ActionResult Delete(int id)
+        {
+            _menuService.DeleteMenu(id);
+
+            return Ok();
+        }
+
+        [Route("update")]
+        [HttpPut]
+        public ActionResult Update(Model.App.Resources.Put.Menu menu)
+        {
+            _menuService.UpdateMenu(menu);
+            return Ok();
+        }
+
+        [Route("updateItem")]
+        [HttpPut]
+        public ActionResult UpdateItem(Model.App.Resources.Put.MenuItem menuItem)
+        {
+            _menuService.UpdateMenuItem(menuItem);
             return Ok();
         }
     }

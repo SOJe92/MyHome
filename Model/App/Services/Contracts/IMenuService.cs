@@ -1,23 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace MyHome.Model.App.Services.Contracts
+﻿namespace MyHome.Model.App.Services.Contracts
 {
     public interface IMenuService
     {
-        Resources.Post.Menu AddMenu();
+        void AddMenu(Resources.Post.Menu menu);
 
-        Resources.Post.MenuItem AddMenuItem();
+        void AddMenuItem(Resources.Post.MenuItem menuItem);
 
-        Resources.Delete.Menu DeleteMenu();
+        void DeleteMenu(int id);
 
-        Resources.Delete.MenuItem DeleteMenuItem();
+        void DeleteMenuItem(int id);
 
-        Resources.Put.Menu UpdateMenu();
+        void UpdateMenu(Resources.Put.Menu menu);
 
-        Resources.Put.MenuItem UpdateMenuItem();
+        void UpdateMenuItem(Resources.Put.MenuItem menuItem);
 
         Resources.Get.Menu GetMenu(int id);
 
