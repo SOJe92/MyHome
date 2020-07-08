@@ -10,6 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Lamar" Version="4.3.0" />
+    <PackageReference Include="Lamar.Microsoft.DependencyInjection" Version="4.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
@@ -23,8 +25,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\components\menu.tsx" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Model\App\Contracts\" />
     <Folder Include="Model\Entities\Services\Contracts\" />
+    <Folder Include="System\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\components\menu.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\app\components\account/account-overview.tsx" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

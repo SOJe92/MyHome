@@ -1,7 +1,6 @@
 ﻿namespace MyHome.Model.Entities.Resources.Get
 {
-    public class User
+    public class User : Base.User
     {
-        public string Name { get; set; }
     }
 }

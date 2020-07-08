@@ -31,6 +31,7 @@ const configureStore = (initialState: any = {}) => {
         router: connectRouter(history),
         routing: routerReducer,
         app: combineReducers({
+            app,
             entity,
         })
     });

@@ -1,4 +1,6 @@
-﻿namespace MyHome.Model.App.Services.Contracts
+﻿using System.Collections.Generic;
+
+namespace MyHome.Model.App.Services.Contracts
 {
     public interface IMenuService
     {
@@ -17,5 +19,7 @@
         Resources.Get.Menu GetMenu(int id);
 
         Resources.Get.MenuItem GetMenuItem(int id);
+
+        IEnumerable<Resources.Get.Menu> GetMenus();
     }
 }

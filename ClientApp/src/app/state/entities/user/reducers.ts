@@ -14,14 +14,14 @@ export default handleActions({
     //        isFetching: true,
     //    };
     //},
-    [`${ActionTypes.app.user.current.fetch}_REQUEST`]: (state: any) => {
+    [`${ActionTypes.app.user.current.read}_REQUEST`]: (state: any) => {
         debugger;
         return {
             ...state,
             isFetching: true,
         };
     },
-    [`${ActionTypes.app.user.current.fetch}_SUCCESS`]: (state: any) => {
+    [`${ActionTypes.app.user.current.read}_SUCCESS`]: (state: any) => {
         debugger;
         return {
             ...state,
@@ -29,7 +29,7 @@ export default handleActions({
             isFetching: false,
         };
     },
-    [`${ActionTypes.app.user.current.fetch}_FAILURE`]: (state: any) => {
+    [`${ActionTypes.app.user.current.read}_FAILURE`]: (state: any) => {
         debugger;
         return {
             ...state,

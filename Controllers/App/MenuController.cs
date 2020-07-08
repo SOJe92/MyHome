@@ -13,6 +13,7 @@ namespace MyHome.Controllers.App
             _menuService = menuService;
         }
 
+        [Route("{id:int}")]
         [HttpGet]
         public IActionResult Get(int id)
         {
@@ -21,43 +22,15 @@ namespace MyHome.Controllers.App
             return Ok(menu);
         }
 
-        [Route("item")]
-        [HttpGet]
-        public ActionResult<Model.App.Resources.Get.MenuItem> GetItem(int id)
-        {
-            var menu = _menuService.GetMenuItem(id);
-
-            return Ok(menu);
-        }
-
-        [Route("add")]
         [HttpPost]
-        public ActionResult Add(Model.App.Resources.Post.Menu menu)
+        public ActionResult Create(Model.App.Resources.Post.Menu menu)
         {
             _menuService.AddMenu(menu);
 
             return Ok();
         }
 
-        [Route("addItem")]
-        [HttpPost]
-        public ActionResult AddItem(Model.App.Resources.Post.MenuItem menuItem)
-        {
-            _menuService.AddMenuItem(menuItem);
-
-            return Ok();
-        }
-
-        [Route("deleteItem")]
-        [HttpDelete]
-        public ActionResult DeleteItem(int id)
-        {
-            _menuService.DeleteMenuItem(id);
-
-            return Ok();
-        }
-
-        [Route("delete")]
+        [Route("{id:int}")]
         [HttpDelete]
         public ActionResult Delete(int id)
         {
@@ -66,19 +39,10 @@ namespace MyHome.Controllers.App
             return Ok();
         }
 
-        [Route("update")]
         [HttpPut]
         public ActionResult Update(Model.App.Resources.Put.Menu menu)
         {
             _menuService.UpdateMenu(menu);
-            return Ok();
-        }
-
-        [Route("updateItem")]
-        [HttpPut]
-        public ActionResult UpdateItem(Model.App.Resources.Put.MenuItem menuItem)
-        {
-            _menuService.UpdateMenuItem(menuItem);
             return Ok();
         }
     }

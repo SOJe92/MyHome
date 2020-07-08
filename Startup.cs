@@ -1,11 +1,14 @@
+using Lamar;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
+using MyHome.Model.App.Services.Contracts;
+using System.IO;
 
 namespace MyHome
 {
@@ -18,16 +21,41 @@ namespace MyHome
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public void ConfigureContainer(ServiceRegistry services)
         {
+            // Add your ASP.Net Core services as usual
+            services.AddMvc();
+            services.AddLogging();
             services.AddControllersWithViews();
-
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/build";
             });
+
+            // Also exposes Lamar specific registrations
+            // and functionality
+            services.Scan(scanner =>
+            {
+                // Here you can add various assembly scans
+                // to ensure Lamar finds all your classes
+                // and registers your project conventions.
+                scanner.TheCallingAssembly();
+                scanner.WithDefaultConventions();
+                scanner.SingleImplementationsOfInterface();
+
+                // Add all implementations of an interface
+                scanner.AssemblyContainingType<IUserService>();
+            });
+
+            // You can create your own registries like with StructurMap
+            // and use expressions to configure types
+            //services.For<IAbstraction>().Use(new ConcreteImplementation());
+
+            // Power up your architechture with the decorator pattern
+            //services
+            //    .For(typeof(ICommandHandler<>))
+            //    .DecorateAllWith(typeof(ValidationCommandHandlerDecorator));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,6 +87,13 @@ namespace MyHome
                 endpoints.MapControllerRoute(
                     name: "api",
                     pattern: "api/{controller}/{id?}");
+            });
+
+            app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"ClientApp")),
+                RequestPath = new PathString("/ClientApp/build")
             });
 
             app.UseSpa(spa =>

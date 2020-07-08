@@ -1,6 +1,7 @@
 import 'bootstrap'
 import 'jquery-validation'
 import 'jquery-validation-unobtrusive'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import * as Redux from 'redux';
 import React from 'react'
 import { render } from 'react-dom'
@@ -23,7 +24,7 @@ async function boot() {
 
     // set base url for api calls
     apiService.setBaseUrl(`${baseUrl}api/`);
-    apiService.setPrivateApiDomain(`myhome`);
+    apiService.setPrivateApiDomain(`/private`);
 
     // fetch access token (for dev-mode impersonation)
     //await apiService.getAccessToken();

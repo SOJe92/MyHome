@@ -45,7 +45,7 @@ class Api {
             }
         };
     }
-    post(actionType: string, endpoint: string, payload: any, options: any) {
+    post(actionType: string, endpoint: string, payload: any, options: any = {}) {
         const fullEndpointUri = this.buildEndpoint(endpoint, options);
         return {
             [RSAA]: {
@@ -125,8 +125,8 @@ class Api {
         const isPrivateEndpoint = typeof (options) === "boolean" ? false : options.isPrivateEndpoint || false;
         const useMockApi = typeof (options) === "boolean" ? options : options.useMockApi || false;
         let actualBaseUrl = (useMockApi) ? this.mockBaseUrl : this.baseUrl;
-        if (isPrivateEndpoint && this.privateApiDomain && actualBaseUrl) {
-            actualBaseUrl = actualBaseUrl.replace(this.privateApiDomain, `private/${this.privateApiDomain}`);
+        if (isPrivateEndpoint && actualBaseUrl) {
+            actualBaseUrl = `${this.privateApiDomain + actualBaseUrl}`
         }
         return (actualBaseUrl) ? `${actualBaseUrl}${endpoint}` : endpoint;
     }
