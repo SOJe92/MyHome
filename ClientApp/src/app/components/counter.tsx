@@ -22,7 +22,6 @@ class Counter extends Component<any, any> {
     };
 
     increment = async () => {
-        debugger;
         await this.props.fetchCurrentUser(1);
         this.setState({
             count: (this.state.count + 1)
@@ -47,7 +46,6 @@ class Counter extends Component<any, any> {
 }
 
 const mapStateToProps = (state: any) => {
-    debugger;
     return {};
 }
 

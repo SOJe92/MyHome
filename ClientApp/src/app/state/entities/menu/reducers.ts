@@ -2,40 +2,30 @@ import { handleActions } from 'redux-actions';
 import ActionTypes from '../../action-types';
 
 export const initialState = {
-    isAdding: false,
     isCompleted: false,
     isFetching: false,
     isSaved: false,
-    items: null,
+    items: [],
     menu: {
         data: null,
     }
 }
 
 export default handleActions({
-    [ActionTypes.app.menu.add]: (state: any, action: any) => {
-        return {
-            ...state,
-            isAdding: true,
-        };
-    },
-    [ActionTypes.app.menu.reset]:(state:any) => {
-        return initialState
-    },
-    [`${ActionTypes.app.menu.create}_REQUEST`]: (state: any) => {
+    [`${ActionTypes.entities.menu.read}_REQUEST`]: (state: any) => {
         return {
             ...state,
             isFetching: true,
         };
     },
-    [`${ActionTypes.app.menu.create}_SUCCESS`]: (state: any, action: any) => {
+    [`${ActionTypes.entities.menu.read}_SUCCESS`]: (state: any, action: any) => {
         return {
             ...state,
             isFetching: false,
-            isSaved: true,
+            items: action.payload,
         };
     },
-    [`${ActionTypes.app.menu.create}_FAILURE`]: (state: any) => {
+    [`${ActionTypes.entities.menu.read}_FAILURE`]: (state: any) => {
         return {
             ...state,
             isFetching: false,

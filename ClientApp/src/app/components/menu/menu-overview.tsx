@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+﻿import React, { Component } from 'react';
 import { Button, Container, ListGroup, } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { NavLink, Route, Switch } from 'react-router-dom';
@@ -7,25 +7,35 @@ import AppMenuActions from '../../state/app/menu/actions';
 import EntitiesMenuActions from '../../state/entities/menu/actions';
 import Form from '../../elements/form';
 
-class Menu extends Component<any, any> {
+class MenuOverview extends Component<any, any> {
     
 
     constructor(props: any) {
         super(props);
     }
 
-    componentDidMount = async () => {
+    componentWillMount = async () => {
+        await this.props.fetchMenus();
+        this.forceUpdate();
     };
 
     loaded = () => {
 
     };
 
-    edit = () => {
+    addMenu = () => {
+        this.props.addMenu();
+    };
+
+    viewMenu = () => {
 
     };
 
-    delete = () => {
+    editMenu = () => {
+
+    };
+
+    deleteMenu = () => {
 
     };
 
@@ -89,4 +99,4 @@ const mapStateToProps = (state: any) => {
 export default connect(
     mapStateToProps,
     dispatch => bindActionCreators({...AppMenuActions, ...EntitiesMenuActions}, dispatch)
-)(Menu);
+)(MenuOverview);

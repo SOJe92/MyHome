@@ -43,35 +43,3 @@ const configureStore = (initialState: any = {}) => {
 }
 
 export default configureStore;
-
-// import * as Redux from 'redux';
-// import ImmutableStateMiddleware from 'redux-immutable-state-invariant';
-// import * as ReduxPromise from 'redux-promise';
-// import * as ReduxThunk from 'redux-thunk';
-// import { composeWithDevTools } from 'redux-devtools-extension';
-// import appReducer from '../app/state/app/reducers'
-// import entityReducer from '../app/state/entities/reducers'
-
-// const middleware: any = [
-//     ReduxThunk.default,
-//     ReduxPromise,
-// ];
-
-// if (process.env.NODE_ENV !== 'production') {
-//     // provides a safety net for developers by checking for state mutations
-//     middleware.push(ImmutableStateMiddleware());
-//     // provides warnings to developers when an action is seemingly unhandled
-//     //middleware.push(UnhandledActionMiddleware());
-// }
-// const rootEnhancer: any = composeWithDevTools(Redux.applyMiddleware(...middleware));
-
-// export default function configureStore() {
-//     debugger;
-//     const reducer = () => undefined;
-//     const store: any = Redux.createStore(
-//         reducer,
-//         rootEnhancer
-//     );
-
-//     return store;
-// }

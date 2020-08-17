@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import Main from './app/components/main';
 import About from './app/components/about';
 import AccountOverview from './app/components/account/account-overview';
-import Menu from './app/components/menu/menu';
+import MenuOverview from './app/components/menu/menu-overview';
 import { actions } from './app/state/app/account/actions';
 
 export class App extends Component<any, any> {
@@ -37,7 +37,7 @@ export class App extends Component<any, any> {
                     <Route exact path='/' component={Main} />
                     <Route exact path='/about' component={About} />
                     <Route path='/account' component={AccountOverview} />
-                    <Route path='/menu' component={Menu} />
+                    <Route path='/menu' component={MenuOverview} />
                 </Switch>
             </Container>
         );

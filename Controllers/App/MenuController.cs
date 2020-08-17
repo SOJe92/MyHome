@@ -13,13 +13,12 @@ namespace MyHome.Controllers.App
             _menuService = menuService;
         }
 
-        [Route("{id:int}")]
         [HttpGet]
-        public IActionResult Get(int id)
+        public IActionResult Get()
         {
-            var menu = _menuService.GetMenu(id);
+            var menus = _menuService.GetMenus();
 
-            return Ok(menu);
+            return Ok(menus);
         }
 
         [HttpPost]

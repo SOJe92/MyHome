@@ -10,7 +10,6 @@ export default {
             add: 'APP_MENU_ADD',
             create: 'APP_MENU_CREATE',
             delete: 'APP_MENU_DELETE',
-            read: 'APP_MENU_READ',
             item: {
                 add: 'APP_MENU_ITEM_ADD',
                 create: 'APP_MENU_ITEM_CREATE',
@@ -18,6 +17,9 @@ export default {
                 read: 'APP_MENU_ITEM_READ',
                 update: 'APP_MENU_ITEM_UPDATE',
             },
+            read: 'APP_MENU_READ',
+            reset: 'APP_MENU_RESET',
+            set: 'APP_MENU_SET',
             update: 'APP_MENU_UPDATE',
         },
         user : {

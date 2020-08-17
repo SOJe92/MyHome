@@ -15,14 +15,12 @@ export default handleActions({
     //    };
     //},
     [`${ActionTypes.app.user.current.read}_REQUEST`]: (state: any) => {
-        debugger;
         return {
             ...state,
             isFetching: true,
         };
     },
     [`${ActionTypes.app.user.current.read}_SUCCESS`]: (state: any) => {
-        debugger;
         return {
             ...state,
             name: 'test',
@@ -30,7 +28,6 @@ export default handleActions({
         };
     },
     [`${ActionTypes.app.user.current.read}_FAILURE`]: (state: any) => {
-        debugger;
         return {
             ...state,
             isFetching: false,

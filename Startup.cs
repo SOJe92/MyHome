@@ -46,6 +46,7 @@ namespace MyHome
 
                 // Add all implementations of an interface
                 scanner.AssemblyContainingType<IUserService>();
+                scanner.AssemblyContainingType<IMenuService>();
             });
 
             // You can create your own registries like with StructurMap

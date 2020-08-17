@@ -1,6 +1,8 @@
 import * as Redux from 'redux';
-import user from './user/reducers'
+import menu from './menu/reducers';
+import user from './user/reducers';
 
 export default Redux.combineReducers({
+    menu,
     user,
 });

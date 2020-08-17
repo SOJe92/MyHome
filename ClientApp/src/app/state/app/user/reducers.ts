@@ -20,7 +20,6 @@ export default handleActions({
         };
     },
     [`${ActionTypes.app.user.current.create}_SUCCESS`]: (state: any, action: any) => {
-        debugger;
         return {
             ...state,
             current: action.payload,
@@ -28,7 +27,6 @@ export default handleActions({
         };
     },
     [`${ActionTypes.app.user.current.create}_FAILURE`]: (state: any) => {
-        debugger;
         return {
             ...state,
             isFetching: false,

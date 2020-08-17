@@ -141,7 +141,6 @@ class Api {
         return headers;
     }
     buildTypes(actionType: any) {
-        debugger;
         return [
             {
                 type: actionType + "_REQUEST",

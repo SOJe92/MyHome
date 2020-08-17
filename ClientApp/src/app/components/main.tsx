@@ -3,7 +3,6 @@ import { Container, Row, Col, Navbar, Nav, Form, FormControl, Button } from 'rea
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
-import { actions } from '../state/app/menu/actions'
 
 class Main extends Component<any, any> {
 
@@ -41,5 +40,5 @@ const mapStateToProps = (state: any) => {
 
 export default connect(
     mapStateToProps,
-    dispatch => bindActionCreators(actions, dispatch)
+    dispatch => bindActionCreators({}, dispatch)
 )(Main);
